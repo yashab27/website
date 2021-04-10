@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Deadend</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <header id="header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#"><img src="img/logoe.png"></a>
+
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html"><i class="fas fa-archway">&nbsp;Home</i></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html"><i class="fas fa-book-open">&nbsp;Books</i></a>
+                        </li>
+                        <!-- Navbar dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-align-justify">&nbsp;Categories</i>
+                            </a>
+                            <!-- Dropdown menu -->
+                            <ul class="dropdown-menu multi-level" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                                <li class="dropdown-submenu"><a class="dropdown-item" tabindex="-1" href="#">Fiction</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" tabindex="-1" href="#">Action & Adventure</a></li>
+                                        <li><a class="dropdown-item" href="#">Crime & Mystery</a></li>
+                                        <li><a class="dropdown-item" href="#">Fantasy</a></li>
+                                        <li><a class="dropdown-item" href="#">Horror</a></li>
+                                        <li><a class="dropdown-item" href="#">Romance</a></li>
+                                        <li><a class="dropdown-item" href="#">Sci-Fi</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Non-fiction</a></li>
+                                <li><a class="dropdown-item" href="#">Literary fiction vs. genre fiction</a></li>
+                                <li><a class="dropdown-item" href="#">Other nonfiction genre</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">References</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-mdb-toggle="modal" data-mdb-target="#myModal"><i class="fas fa-upload">&nbsp;Upload</i></a>
+                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="background-color: beige;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel">Article Upload</h5>
+                                            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <p><strong>Upload your article here.Before uploading read <a href="#">[Terms & Policy]</a> of our website.</strong></p>
+                                            <p>Your uploaded article will be verified by our website within 24 hours and if granted we will send you a message in the email provided by you.</p>
+                                            <p><em>Mention article head,author name and details in your article.</em></p>
+                                            <div class="form-outline mb-4">
+                                                <input type="email" id="form5Example2" class="form-control" />
+                                                <label class="form-label" for="form5Example2">Email address</label>
+                                            </div>
+                                            <input type="button" id="btnFileUpload" value="Select File" class="mb-3" />
+                                            <span id="spnFilePath"></span>
+                                            <input type="file" id="FileUpload1" style="display: none" />
+                                            <script type="text/javascript">
+                                                window.onload = function() {
+                                                    var fileupload = document.getElementById("FileUpload1");
+                                                    var filePath = document.getElementById("spnFilePath");
+                                                    var button = document.getElementById("btnFileUpload");
+                                                    button.onclick = function() {
+                                                        fileupload.click();
+                                                    };
+                                                    fileupload.onchange = function() {
+                                                        var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+                                                        filePath.innerHTML = "<b>Selected File: </b>" + fileName;
+                                                    };
+                                                };
+                                            </script>
+                                            <div class="modal-footer">
+                                                <button type="button" onclick="myFunction3" class="btn btn-block btn-secondary" value="submit">Upload</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+
+                    <!-- Search form -->
+                    <form class="d-flex input-group w-auto">
+                        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-warning" type="button" data-mdb-ripple-color="dark">
+                            <i class="fas fa-search"></i>
+          </button>
+                    </form>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main id="site-main" class="mt-5 py-4">
+        <section id="posts">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-10  col-lg-10 col-md-12 col-11 mx-auto my-5">
+                        <div class="row gx-5 mx-sm-auto">
+                            <!--Left side-->
+                            <div class="leftcolumn col-lg-8 col-md-11 col-11 mx-auto">
+                                <div class="row gy-5 ">
+                                    <div class="card col-12 h-auto">
+                                        <div class="text-center card-header justify-content-center">
+                                            <h5 class="mt-2"><strong>Tell Me Your Dreams</strong></h5>
+                                            <p class="blog_title"> <span class="font-weight-bold"> Title description, </span> Aug 12, 2020 </p>
+                                        </div>
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="img/tell.jpg" class="img-fluid pt-2" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><em>She had read about stalkers, but they belonged in a different, faraway world. She had no idea who it could be, who would want to harm her. She was trying desperately not to panic, but lately her sleep had been
+                                                filled with nightmares, and she had awakened each morning with a feeling of impending doom.</em></p>
+                                            <p><em>As the ending drew nearer tony made a plan with alette to feign becoming cured to get out of the hospital and kill ashley's dad. Dr gilbert helped ashley embrace her other selves... he made them communicate with each other. Ashley came to embrace the feelings of Tony and Alette. So she joined the both of them in pretending to becoming cured to get out of that cell and get what needs to be done. (kill her father)At the end ,as Ashley boards the train Tony takes over and sings her song.</em></p>
+                                        </div>
+
+                                        <div class="card-footer d-flex justify-content-between ">
+                                            <div class="like_btn justify-content-start">
+                                                <button class="btn left_div__like" id="roo"><i class="fa fa-thumbs-up"></i>&nbsp;Like</button>
+                                            </div>
+                                            <script type="text/javascript">
+                                                const like = document.getElementById('roo');
+                                                const singleClick = () => {
+                                                    like.style.fontWeight = 'bold';
+                                                    like.style.background = '#bbe1fa';
+                                                    like.style.color = '#1b262c';
+                                                    like.innerHTML = "✓ Liked";
+                                                }
+                                                const doubleClick = () => {
+                                                    like.style.fontWeight = 'normal';
+                                                    like.style.background = '#3282b8';
+                                                    like.style.color = '#fff';
+                                                    like.innerHTML = "Like";
+                                                }
+                                                var clickCount = 0;
+                                                like.addEventListener('click', function() {
+                                                    clickCount++;
+                                                    if (clickCount === 1) {
+                                                        singleClickTimer = setTimeout(function() {
+                                                            clickCount = 0;
+                                                            singleClick();
+                                                        }, 400);
+                                                    } else if (clickCount === 2) {
+                                                        clearTimeout(singleClickTimer);
+                                                        clickCount = 0;
+                                                        doubleClick();
+                                                    }
+                                                }, true);
+                                            </script>
+                                            <div class="comment">
+                                                <butoon type="button" class="btn btn-danger"><i class="fas fa-comments"></i>&nbsp;Comments</butoon>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card col-12 h-auto">
+                                        <div class="text-center card-header justify-content-center">
+                                            <h5 class="mt-2"><strong>The Girl On The Train</strong></h5>
+                                            <p class="blog_title"> <span class="font-weight-bold"> Title description, </span> Aug 12, 2020 </p>
+                                        </div>
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="img/train1.jpg" class="img-fluid pt-2" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><em>#BrokenThe themes of this novel are betrayal, isolation, guilt, blame, and alcohol. This theme fits the novel because it all started when Tom left Rachel, that's when she started drinking because she thought it was her fault on why their marriage broke and that isolated her from other people.</em></p>
+                                            <p><em>Commuter Rachel Watson (Emily Blunt) catches daily glimpses of a seemingly perfect couple, Scott and Megan, from the window of her train. One day, Watson witnesses something shocking unfold in the backyard of the strangers' home. Rachel tells the authorities what she thinks she saw after learning that Megan is now missing and feared dead. Unable to trust her own memory, the troubled woman begins her own investigation, while police suspect that Rachel may have crossed a dangerous line.</em></p>
+                                        </div>
+
+                                        <div class="card-footer d-flex justify-content-between ">
+                                            <div class="like_btn justify-content-start" id="roo1"></div>
+                                            <script type="text/jsx">
+
+                                                class HeartButton extends React.Component { state = { likes: 0 }; addLike = () => { let newCount = this.state.likes + 1; this.setState({ likes: newCount }); }; render() { const likes = this.state.likes; if (likes === 0) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                                     <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
+                                                     </button>
+                                                </div>
+                                                ); } if (likes === 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                                    <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
+                                                   </button>
+                                                </div>
+                                                ); } if (likes > 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>{" "}
+                                        {likes}
+                                      </button>
+                                                </div>
+                                                ); } } } ReactDOM.render(
+                                                <HeartButton />, document.getElementById('roo1') );
+                                            </script>
+
+                                            <div class="comment">
+                                                <butoon type="button" class="btn btn-danger"><i class="fas fa-comments"></i>&nbsp;Comments</butoon>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card col-12 h-auto">
+                                        <div class="text-center card-header justify-content-center">
+                                            <h5 class="mt-2"><strong>Pet Sematary Facts</strong></h5>
+                                            <p class="blog_title"> <span class="font-weight-bold"> Title description, </span> Aug 12, 2020 </p>
+                                        </div>
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="img/pet.jpg" class="img-fluid pt-2" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><em>Doctor Louis Creed (Dale Midkiff) moves his family to Maine, where he meets a friendly local named Jud Crandall (Fred Gwynne). After the Creeds' cat is accidentally killed, Crandall advises Louis to bury it in the ground near the old pet cemetery. The cat returns to life, its personality changed for the worse. When Louis' son, Gage (Miko Hughes), dies tragically, Louis decides to bury the boy's body in the same ground despite the warnings of Crandall and Louis' visions of a deceased patient.</em></p>
+                                            <p></p>
+                                        </div>
+
+                                        <div class="card-footer d-flex justify-content-between ">
+                                            <div class="like_btn justify-content-start" id="roo2"></div>
+                                            <script type="text/jsx">
+
+                                                class HeartButton extends React.Component { state = { likes: 0 }; addLike = () => { let newCount = this.state.likes + 1; this.setState({ likes: newCount }); }; render() { const likes = this.state.likes; if (likes === 0) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes === 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes > 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>{" "}
+                                        {likes}
+                                      </button>
+                                                </div>
+                                                ); } } } ReactDOM.render(
+                                                <HeartButton />, document.getElementById('roo2') );
+                                            </script>
+                                            <div class="comment">
+                                                <butoon type="button" class="btn btn-danger"><i class="fas fa-comments"></i>&nbsp;Comments</butoon>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card col-12 h-auto">
+                                        <div class="text-center card-header justify-content-center">
+                                            <h5 class="mt-2"><strong>IT</strong></h5>
+                                            <p class="blog_title"> <span class="font-weight-bold"> Title description, </span> Aug 12, 2020 </p>
+                                        </div>
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="img/it2.jpg" class="img-fluid pt-2" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><em>After recent cases of disappearing local kids in the town of Derry, Maine, IT follows a group of kids dubbed "The Losers' Club" in the summer of 1989 and their discovery and scary encounters of a shape-shifting demonic entity, known to return every 27 years and preys on your own personal fears.</em></p>
+                                            <p><em>Seven young outcasts in Derry, Maine, are about to face their worst nightmare -- an ancient, shape-shifting evil that emerges from the sewer every 27 years to prey on the town's children. Banding together over the course of one horrifying summer, the friends must overcome their own personal fears to battle the murderous, bloodthirsty clown known as Pennywise.</em></p>
+                                        </div>
+
+                                        <div class="card-footer d-flex justify-content-between ">
+
+                                            <div class="like_btn justify-content-start" id="roo3"></div>
+                                            <script type="text/jsx">
+
+                                                class HeartButton extends React.Component { state = { likes: 0 }; addLike = () => { let newCount = this.state.likes + 1; this.setState({ likes: newCount }); }; render() { const likes = this.state.likes; if (likes === 0) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes === 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes > 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>{" "}
+                                        {likes}
+                                      </button>
+                                                </div>
+                                                ); } } } ReactDOM.render(
+                                                <HeartButton />, document.getElementById('roo3') );
+                                            </script>
+                                            <div class="comment">
+                                                <butoon type="button" class="btn btn-danger"><i class="fas fa-comments"></i>&nbsp;Comments</butoon>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card col-12 h-auto">
+                                        <div class="text-center card-header justify-content-center">
+                                            <h5 class="mt-2"><strong>ORIGIN</strong></h5>
+                                            <p class="blog_title"> <span class="font-weight-bold"> Title description, </span> Aug 12, 2020 </p>
+                                        </div>
+                                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                            <img src="img/dan.jpg" class="img-fluid pt-2" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><em>Reeling and facing an imminent threat, Langdon is forced into a desperate bid to escape Bilbao. With him is Ambra Vidal, the elegant museum director who worked with Kirsch to stage the provocative event. Together they flee to Barcelona on a perilous quest to locate a cryptic password that will unlock Kirsch's secret.</em></p>
+                                            <p><em>The guests receive a headset through which they communicate with a voice named Winston, which reveals to Langdon that it is an artificial intelligence invented by Kirsch. Winston leads Langdon to a private meeting with Kirsch, who claims that his presentation will reveal humanity's origins and future.</em></p>
+                                        </div>
+
+                                        <div class="card-footer d-flex justify-content-between ">
+                                            <div class="like_btn justify-content-start" id="roo4"></div>
+                                            <script type="text/jsx">
+
+                                                class HeartButton extends React.Component { state = { likes: 0 }; addLike = () => { let newCount = this.state.likes + 1; this.setState({ likes: newCount }); }; render() { const likes = this.state.likes; if (likes === 0) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes === 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
+                                      </button>
+                                                </div>
+                                                ); } if (likes > 1) { return (
+                                                <div>
+                                                    <button className="button" onClick={this.addLike}>
+                                        <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>{" "}
+                                        {likes}
+                                      </button>
+                                                </div>
+                                                ); } } } ReactDOM.render(
+                                                <HeartButton />, document.getElementById('roo4') );
+                                            </script>
+                                            <div class="comment">
+                                                <butoon type="button" class="btn btn-danger"><i class="fas fa-comments"></i>&nbsp;Comments</butoon>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Right Side-->
+                            <div class="col-lg-3 col-md-7 col-11  justify-content-end m-lg-0 m-auto ">
+                                <div class="row gy-5 left_div__blog">
+                                    <aside class="sidebar">
+                                        <div class="col-12 sidebar">
+                                            <section class="categories">
+                                                <h2 class="text-center">Categories</h2>
+                                                <a href="#" class="d-flex justify-content-between text-dark">
+                                                    <span>Horror</span><span>11</span>
+                                                </a>
+                                                <a href="#" class="d-flex justify-content-between text-dark">
+                                                    <span>Mystery</span><span>6</span>
+                                                </a>
+                                                <a href="#" class="d-flex justify-content-between text-dark">
+                                                    <span>Fantasy</span><span>18</span>
+                                                </a>
+                                                <a href="#" class="d-flex justify-content-between text-dark">
+                                                    <span>Sci-Fi</span><span>5</span>
+                                                </a>
+                                                <a href="#" class="d-flex justify-content-between text-dark">
+                                                    <span>Romance</span><span>3</span>
+                                                </a>
+                                            </section>
+                                        </div>
+
+                                        <section class="popular-authors mt-5">
+                                            <h2 class="text-center">Popular Authors</h2>
+                                            <hr class="mt-2 mb-2">
+                                            <div class="post-item py-1">
+                                                <article class="article pb-2">
+                                                    <div class="d-flex card px-2 pt-1">
+                                                        <a href=""><img src="img/shakes.jpg" class="round align-content-center"></a>
+                                                        <div class="cart-body">
+                                                            <div class="trending-category">
+                                                                <a href="#" class="link-danger">William Shakespere</a>
+
+                                                            </div>
+                                                            <div>
+                                                                <a href="#" class="text-dark text-title">
+                                                                    <strong>William Shakespeare was an English playwright, poet, and actor.</strong>
+                                                                </a>
+                                                                <p class="small text-warning"><span><i class="far fa-clock text-danger"></i>Clock Wed 02, 2021</span></p>
+                                                            </div>
+                                                        </div>
+                                                </article>
+                                                <article class="article pb-2">
+                                                    <div class="d-flex card px-2 pt-1">
+                                                        <a href=""><img src="img/rowling.jpg" class="round align-content-center"></a>
+                                                        <div class="cart-body">
+                                                            <div class="trending-category">
+                                                                <a href="#" class="link-danger">J.K.Rowling</a>
+
+                                                            </div>
+                                                            <div>
+                                                                <a href="#" class="text-dark text-title">
+                                                                    <strong>J. K. Rowling, is a British author, philanthropist, film producer, television producer, and screenwriter.</strong>
+                                                                </a>
+                                                                <p class="small text-warning"><span><i class="far fa-clock text-danger"></i>Clock Wed 02, 2021</span></p>
+                                                            </div>
+                                                        </div>
+                                                </article>
+                                                <article class="article pb-2">
+                                                    <div class="d-flex card px-2 pt-1">
+                                                        <a href=""><img src="img/king.jpg" class="round align-content-center"></a>
+                                                        <div class="cart-body">
+                                                            <div class="trending-category">
+                                                                <a href="#" class="link-danger">Stephen King</a>
+
+                                                            </div>
+                                                            <div>
+                                                                <a href="#" class="text-dark text-title">
+                                                                    <strong>Stephen Edwin King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels.</strong>
+                                                                </a>
+                                                                <p class="small text-warning"><span><i class="far fa-clock text-danger"></i>Clock Wed 02, 2021</span></p>
+                                                            </div>
+                                                        </div>
+                                                </article>
+                                                <a href="#"><button type="button" class="btn btn-success ">More Like This</button></a>
+                                                </div>
+                                        </section>
+                                        <div class="col-12 pt-5">
+
+                                        </div>
+                                    </aside>
+                                    </div>
+                                    </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+        </section>
+
+
+    </main>
+
+    </div>
+    <footer class="bg-dark text-center text-white">
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="img/logoe.png">
+                    <hr class="light">
+                    <p><i class="fas fa-phone-alt"></i>&nbsp;+91-8743228220</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;deadend@gmail.com</p>
+                    <p><i class="fas fa-map-marked-alt"></i>&nbsp;Hirawad street,H-100</p>
+                    <p><i class="fas fa-map-pin"></i>&nbsp;Liusa,Mumbai,230532</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Our Service Centres</h5>
+                    <hr class="light">
+                    <p>New york,+1-518-345-8989</p>
+                    <p>France,+33-921477412</p>
+                    <p>US,+1-202-555-8979</p>
+                    <p>UK,+44-278782723</p>
+                    <p>Austria,+43-827847745</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>MORE ON DEADEND</h5>
+                    <hr class="light">
+                    <p>We are a WordPress and inbound marketing agency with brains. We treat our clients with love. We deliver books and posters with a resonable price</p>
+
+                    <!--connect-->
+                    <hr class="light">
+                    <h4>Follow Us</h4>
+                    <hr class="light">
+                    <div class="social padding">
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="light">
+                    <h5>&copy; deadend.com 2021.All rights reseved.&nbsp;&nbsp;&nbsp;<a class="text-end" href="#">[Terms&Policy]</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://kit.fontawesome.com/00c761c639.js" crossorigin="anonymous"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/my.js"></script>
+
+</body>
+
+</html>
